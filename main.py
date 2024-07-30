@@ -14,8 +14,8 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: CallbackContext) -> None:
     chat_id = update.message.chat_id
-    game_name = "counter"  # Set this to your game's short name
-
+    game_name = "BeYourself"  # Set this to your game's short name
+    print('chat_id "%s" game_name "%s"', chat_id, game_name)
     keyboard = [
         [InlineKeyboardButton("Play This Game", callback_game= CallbackGame())],
         [InlineKeyboardButton("Help", callback_data='help')],
@@ -30,8 +30,8 @@ async def button(update: Update, context: CallbackContext) -> None:
     
     if query.data == 'help':
         await context.bot.answer_callback_query(query.id, text="Help message: How to play the game...")
-    elif query.game_short_name == 'counter':
-        await context.bot.answer_callback_query(query.id, url="https://t.me/BNBMiniGame_bot/bnbminiapp")
+    elif query.game_short_name == 'BeYourself':
+        await context.bot.answer_callback_query(query.id, url="t.me/Cheese_Art_Labs_bot/cheeseart")
     # if query.data == 'help':
     #     await context.bot.answer_callback_query(query.id, text='help')
     # await context.bot.answer_callback_query(query.id, url="https://t.me/BNBMiniGame_bot/bnbminiapp")
